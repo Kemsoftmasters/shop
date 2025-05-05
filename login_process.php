@@ -1,10 +1,6 @@
 <?php
 session_start();
-
-$servername = "localhost"; // Replace with your server name if it's different
-$username = "root"; // Replace with your database username
-$password = ""; // Replace with your database password
-$dbname = "kemsoft_masters_shop"; // Your database name
+require_once 'includes/db_connect.php';
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

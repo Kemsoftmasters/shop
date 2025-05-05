@@ -2,10 +2,7 @@
 session_start();
 
 // Database connection details
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "kemsoft_masters_shop";
+require_once 'includes/db_connect.php';
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

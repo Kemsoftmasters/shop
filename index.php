@@ -268,7 +268,7 @@ if ($result_categories_overview->num_rows > 0) {
                 <?php foreach ($categories_overview as $category): ?>
                     <div class="category-item">
                         <a href="category.php?id=<?php echo $category['category_id']; ?>">
-                            <img src="images/category_placeholder.png" alt="<?php echo htmlspecialchars($category['name']); ?>"> <h3><?php echo htmlspecialchars($category['name']); ?></h3>
+                            <img src="images/mouse.png" alt="<?php echo htmlspecialchars($category['name']); ?>"> <h3><?php echo htmlspecialchars($category['name']); ?></h3>
                         </a>
                     </div>
                 <?php endforeach; ?>

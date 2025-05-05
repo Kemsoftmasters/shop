@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'includes/db_connect.php';
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
@@ -13,11 +14,6 @@ if (!isset($_POST['address_id']) || !is_numeric($_POST['address_id'])) {
 
 $address_id = $_POST['address_id'];
 $user_id = $_SESSION['user_id'];
-
-$servername = "localhost"; // Replace with your server name if it's different
-$username = "root"; // Replace with your database username
-$password = ""; // Replace with your database password
-$dbname = "kemsoft_masters_shop"; // Your database name
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

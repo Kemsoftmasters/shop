@@ -1,16 +1,11 @@
 <?php
 session_start();
+require_once 'includes/db_connect.php';
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
-
-$servername = "localhost"; // Replace with your server name if it's different
-$username = "root"; // Replace with your database username
-$password = ""; // Replace with your database password
-$dbname = "kemsoft_masters_shop"; // Your database name
-
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
