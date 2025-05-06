@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 }
 
 $user_id = $_SESSION['user_id'];
-$stmt = $conn->prepare("SELECT address_id, address_type, street_address, city, state, zip_code, country FROM user_addresses WHERE user_id = ?");
+$stmt = $conn->prepare("SELECT address_id, address_type, street_address1, street_address2, city, state, postal_code, country FROM user_addresses WHERE user_id = ?");
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -178,8 +178,8 @@ $conn->close();
             <button class="hamburger-menu">☰</button>
             <ul class="nav-links">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Categories</a></li>
+                <li><a href="products.php">Products</a></li>
+                <li><a href="category.php">Categories</a></li>
                 <li><a href="account.php">Account</a></li>
                 <li><a href="cart.php">Cart(<?php echo isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0; ?>)</a></li>
             </ul>
@@ -249,7 +249,11 @@ $conn->close();
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="street_address">Street Address</label>
+                    <label for="street_address1">Street Address 1</label>
+                    <input type="text" id="street_address" name="street_address" required>
+                </div>
+                <div class="form-group">
+                    <label for="street_address2">Street Address 2</label>
                     <input type="text" id="street_address" name="street_address" required>
                 </div>
                 <div class="form-group">

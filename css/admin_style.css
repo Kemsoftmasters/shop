@@ -1,0 +1,518 @@
+/* css/admin_style.css - COMBINED STYLES */
+
+/* --- General Admin Body and Layout Styles --- */
+/* These are generally for the main admin pages (dashboard, lists, forms within the layout) */
+/* NOT typically for the login page which should have its own body/centering styles */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background-color: #f8f9fa; /* Light background for the main area */
+    color: #333;
+}
+
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar styles (basic example) */
+.sidebar {
+    width: 250px;
+    background-color: #343a40; /* Dark background */
+    color: #fff;
+    padding: 20px;
+    flex-shrink: 0; /* Prevent sidebar from shrinking */
+}
+
+.sidebar h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #ced4da; /* Lighter text color */
+    text-decoration: none;
+    display: block;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #495057; /* Darker background on hover */
+    color: #fff;
+}
+
+.sidebar ul li a.active {
+    background-color: #007bff; /* Highlight active link */
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Content Area Styles */
+.content-area {
+    flex-grow: 1; /* Content area takes up remaining space */
+    padding: 20px;
+    background-color: #fff; /* White background for content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.content-area h1 {
+    color: #343a40;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+
+/* --- Status and Error Messages --- */
+.success-message {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    word-break: break-word;
+}
+
+.error-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    word-break: break-word;
+}
+
+
+/* --- General Form Styles --- */
+.form-container,
+.add-user-form-container, /* Specific container for add/edit forms */
+.edit-user-form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Space below the form box */
+}
+
+.form-container h2,
+.add-user-form-container h2,
+.edit-user-form-container h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #343a40;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+    position: relative; /* Needed for password toggle */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"], /* Assuming you have number inputs */
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 100px; /* Default textarea height */
+}
+
+/* Specific height for page content textarea */
+.form-container textarea#content {
+     min-height: 300px;
+}
+
+
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    color: #6c757d;
+    font-size: 0.85em;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    text-decoration: none; /* Ensure links styled as buttons look correct */
+    text-align: center; /* Center text in button links */
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.button-secondary {
+    background-color: #6c757d;
+}
+
+.button-secondary:hover {
+    background-color: #5a6268;
+}
+
+.button-danger { /* Optional: for delete buttons */
+    background-color: #dc3545;
+}
+
+.button-danger:hover {
+    background-color: #c82333;
+}
+
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    /* Adjust alignment as needed, e.g., justify-content: flex-end; */
+}
+
+
+/* --- Table Styles (for listing pages) --- */
+.data-table, /* Generic class for all list tables */
+.users-table { /* Specific class for users table */
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden; /* Needed to respect border-radius on child elements */
+}
+
+.data-table th,
+.users-table th,
+.data-table td,
+.users-table td {
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    text-align: left;
+    font-size: 0.95em;
+}
+
+.data-table th,
+.users-table th {
+    background-color: #e9ecef;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #495057;
+    font-size: 0.85em;
+}
+
+.data-table tbody tr:nth-child(even),
+.users-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.data-table tbody tr:hover,
+.users-table tbody tr:hover {
+    background-color: #e2e6ea;
+}
+
+.data-table .action-links a,
+.users-table .action-links a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #007bff; /* Link color */
+}
+
+.data-table .action-links a:hover,
+.users-table .action-links a:hover {
+    text-decoration: underline;
+}
+
+/* Style for table headers with sort links */
+.data-table th a,
+.users-table th a {
+    color: #495057; /* Header link color */
+    text-decoration: none;
+}
+
+.data-table th a:hover,
+.users-table th a:hover {
+     text-decoration: underline;
+}
+
+/* Styling for sort arrows */
+span.sort-arrow {
+    font-size: 0.8em;
+    vertical-align: middle;
+}
+
+
+/* --- Filter Form Styles --- */
+.filter-form {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-end;
+}
+
+.filter-form .form-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 0; /* Remove bottom margin from inner form groups */
+}
+
+.filter-form .form-group label {
+    margin-bottom: 0;
+    min-width: 80px;
+    text-align: right;
+    font-weight: normal; /* Less bold in filter form */
+    color: #555;
+}
+
+.filter-form input[type="text"],
+.filter-form input[type="email"],
+.filter-form input[type="number"],
+.filter-form select {
+    width: auto;
+    max-width: 180px;
+    padding: 8px 10px; /* Smaller padding */
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    box-sizing: border-box;
+    font-size: 1em;
+    flex-grow: 1;
+}
+
+.filter-form .button-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 0; /* Adjust margin top */
+}
+
+.filter-form button,
+.filter-form a.button-secondary {
+    padding: 8px 15px; /* Smaller padding for filter buttons */
+    font-size: 1em;
+}
+
+/* Small screen adjustments for filter form */
+@media (max-width: 768px) {
+    .filter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-form .form-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+        margin-bottom: 15px; /* Restore margin on small screens */
+    }
+
+    .filter-form label {
+        margin-bottom: 5px;
+        display: block;
+        min-width: auto;
+        text-align: left;
+    }
+
+    .filter-form input[type="text"],
+    .filter-form input[type="email"],
+    .filter-form input[type="number"],
+    .filter-form select {
+        width: 100%;
+        max-width: none;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+
+    .filter-form .button-group {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+        align-items: stretch; /* Stretch buttons */
+    }
+
+    .filter-form button,
+    .filter-form a.button-secondary {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+
+/* --- Pagination Styling --- */
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* Slightly less space between links */
+}
+
+.pagination a,
+.pagination span {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #007bff;
+    background-color: #fff;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    font-size: 0.95em; /* Slightly smaller font */
+}
+
+.pagination a:hover {
+    background-color: #e9ecef;
+    color: #0056b3;
+}
+
+.pagination span.current-page {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    font-weight: bold;
+}
+
+.pagination span.disabled {
+    opacity: 0.6; /* Make disabled links more visible than 0.5 */
+    cursor: not-allowed;
+}
+
+/* --- Login Page Specific Styles --- */
+/* IMPORTANT: These styles are specifically for the login page layout (full screen center) */
+/* If you use these on pages with the sidebar layout, it may cause conflicts. */
+/* It is highly recommended to keep these in a separate file like admin_login_style.css */
+body.login-page-body { /* Add a class to the body tag on the login page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+.login-page-body .login-container { /* Target the login container only on login body */
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.login-page-body .login-container h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #343a40;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 15px;
+}
+
+/* Reuse .form-group, label, input styles from general form styles */
+
+.login-page-body .form-group input[type="password"] {
+    padding-right: 40px; /* Make space for the toggle button */
+}
+
+.login-page-body .password-toggle {
+    position: absolute;
+    top: 40px;
+    right: 12px;
+    cursor: pointer;
+    color: #6c757d;
+    font-size: 0.9em;
+    user-select: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.login-page-body .password-toggle:hover {
+    color: #343a40;
+}
+
+.login-page-body .error-message { /* Ensure consistent error styling on login page */
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: left;
+    word-break: break-word;
+    font-size: 0.95em;
+}
+
+
+.login-page-body .login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 15px;
+}
+
+.login-page-body .login-button:hover {
+    background-color: #0056b3;
+}
+
+.login-page-body .form-group input:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 400px) {
+    .login-page-body .login-container {
+        padding: 20px;
+    }
+}

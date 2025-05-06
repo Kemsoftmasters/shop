@@ -22,7 +22,8 @@ function sanitize_input($data)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION['user_id'];
     $address_type = sanitize_input($_POST["address_type"]);
-    $street_address = sanitize_input($_POST["street_address"]);
+    $street_address1 = sanitize_input($_POST["street_address1"]);
+    $street_address2 = sanitize_input($_POST["street_address2"]);
     $city = sanitize_input($_POST["city"]);
     $state = sanitize_input($_POST["state"]);
     $zip_code = sanitize_input($_POST["zip_code"]);
@@ -30,14 +31,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Basic validation
     if (empty($address_type) || empty($street_address) || empty($city) || empty($country)) {
-        $_SESSION['add_address_error'] = "Please fill in all required fields (Address Type, Street Address, City, and Country).";
+        $_SESSION['add_address_error'] = "Please fill in all required fields (Address Type, Street Address1, City, and Country).";
         header("Location: saved_addresses.php");
         exit();
     }
 
     // Insert the new address into the database
-    $stmt = $conn->prepare("INSERT INTO user_addresses (user_id, address_type, street_address, city, state, zip_code, country) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("issssss", $user_id, $address_type, $street_address, $city, $state, $zip_code, $country);
+    $stmt = $conn->prepare("INSERT INTO user_addresses (user_id, address_type, street_address1, street_address2, city, state, postal_code, country) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("issssss", $user_id, $address_type, $street_address1, $street_address2, $city, $state, $postal_code, $country);
 
     if ($stmt->execute()) {
         $_SESSION['add_address_success'] = "New address added successfully!";

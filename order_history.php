@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 $user_id = $_SESSION['user_id'];
-$stmt = $conn->prepare("SELECT o.order_id, o.order_date, o.total_amount, o.payment_status, COUNT(oi.item_id) AS item_count
+$stmt = $conn->prepare("SELECT o.order_id, o.order_date, o.total_amount, o.payment_status,o.delivery_status, COUNT(oi.item_id) AS item_count
                         FROM orders o
                         LEFT JOIN order_items oi ON o.order_id = oi.order_id
                         WHERE o.user_id = ?
@@ -150,7 +150,8 @@ $conn->close();
                             <p><strong>Order ID:</strong> <?php echo htmlspecialchars($order['order_id']); ?></p>
                             <p><strong>Order Date:</strong> <?php echo htmlspecialchars(date("F j, Y", strtotime($order['order_date']))); ?></p>
                             <p><strong>Total Amount:</strong> $<?php echo htmlspecialchars(number_format($order['total_amount'], 2)); ?></p>
-                            <p><strong>Status:</strong> <span class="status <?php echo htmlspecialchars(strtolower($order['payment_status'])); ?>"><?php echo htmlspecialchars(ucfirst($order['payment_status'])); ?></span></p>
+                            <p><strong>Payment Status:</strong> <span class="status <?php echo htmlspecialchars(strtolower($order['payment_status'])); ?>"><?php echo htmlspecialchars(ucfirst($order['payment_status'])); ?></span></p>
+                            <p><strong>Delivery Status:</strong> <span class="status <?php echo htmlspecialchars(strtolower($order['delivery_status'])); ?>"><?php echo htmlspecialchars(ucfirst($order['delivery_status'])); ?></span></p>
                             <p><strong>Items:</strong> <?php echo htmlspecialchars($order['item_count']); ?></p>
                         </div>
                     <?php endforeach; ?>

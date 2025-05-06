@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch the main order details
-$stmt_order = $conn->prepare("SELECT order_id, order_date, total_amount, payment_status,
+$stmt_order = $conn->prepare("SELECT order_id, order_date, total_amount, payment_status,delivery_status,
                                     billing_name, billing_address, billing_city, billing_postal_code, billing_country,
                                     shipping_name, shipping_address, shipping_city, shipping_postal_code, shipping_country
                              FROM orders
@@ -171,6 +171,7 @@ $conn->close();
                 <p><strong>Order ID:</strong> <?php echo htmlspecialchars($order['order_id']); ?></p>
                 <p><strong>Order Date:</strong> <?php echo htmlspecialchars(date("F j, Y, g:i a", strtotime($order['order_date']))); ?></p>
                 <p><strong>Payment Status:</strong> <?php echo htmlspecialchars(ucfirst($order['payment_status'])); ?></p>
+                <p><strong>Delivery Status:</strong> <?php echo htmlspecialchars(ucfirst($order['delivery_status'])); ?></p>
                 <p><strong>Total Amount:</strong> Ksh. <?php echo htmlspecialchars(number_format($order['total_amount'], 2)); ?></p>
 
                 <h3>Billing Information</h3>

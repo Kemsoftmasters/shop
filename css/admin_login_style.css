@@ -1,0 +1,74 @@
+/* css/admin_login_style.css */
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4; /* Consistent background */
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333; /* Darker text for headings */
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555; /* Medium dark text for labels */
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da; /* Consistent border color */
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in element's total width */
+    font-size: 1em;
+}
+
+/* Styling for consistent error messages (from admin_style.css pattern) */
+.error-message {
+    color: #721c24; /* Dark red text */
+    background-color: #f8d7da; /* Light red background */
+    border: 1px solid #f5c6cb; /* Red border */
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    text-align: left; /* Align error text to left */
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Primary blue color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em; /* Slightly larger font */
+    transition: background-color 0.2s ease-in-out; /* Smooth transition */
+}
+
+.login-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

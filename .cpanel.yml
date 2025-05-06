@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/kemsoftm/public_html/shop
+    - export DEPLOYPATH=/home/kemsoftm/shop.kemsoftmasters.co.ke/
     - /bin/cp -r ./* $DEPLOYPATH
